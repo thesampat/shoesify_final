@@ -1,0 +1,32 @@
+{
+"user":"testassert",
+"product": {"title":"1": ,"description":"d"},
+"qty":"30",
+"varient":{
+            "id": 1,
+            "sizes": [
+                {
+                    "choices": 61
+                },
+                {
+                    "choices": 71
+                },
+                {
+                    "choices": 81
+                },
+                {
+                    "choices": 91
+                },
+                {
+                    "choices": 10
+                }
+            ],
+            "price": 999,
+            "discount_price": 449,
+            "discount": 55,
+            "color": "BLACK",
+            "qty": 12,
+            "pro": 1
+        },
+"image":"1"
+}

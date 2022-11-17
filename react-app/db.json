@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "first_name": "Anna",
+      "last_name": "Smith",
+      "email": "annasmith23@gmail.com"
+    },
+    {
+      "first_name": "Sampat   ",
+      "last_name": "Equlity",
+      "email": "Rupam@gmail.com",
+      "id": 4
+    },
+    {
+      "first_name": "Sampat   ",
+      "last_name": "pawar",
+      "email": "Rupam@gmail.com",
+      "id": 5
+    },
+    {
+      "first_name": "Sampat   ",
+      "last_name": "Ramesh",
+      "email": "Rupam@gmail.com",
+      "id": 6
+    },
+    {
+      "first_name": "Sampat   ",
+      "last_name": "Kartik",
+      "email": "Rupam@gmail.com",
+      "id": 7
+    },
+    {
+      "first_name": "Sanjana   ",
+      "last_name": "Kartik",
+      "email": "Rupam@gmail.com",
+      "id": 8
+    },
+    {
+      "first_name": "Sanjana   ",
+      "last_name": "Raibagi",
+      "email": "Rupam@gmail.com",
+      "id": 9
+    },
+    {
+      "first_name": "Sanjana   ",
+      "last_name": "Raibagi",
+      "email": "Rupam@gmail.com",
+      "id": 10
+    }
+  ]
+}
