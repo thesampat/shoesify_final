@@ -30,9 +30,9 @@ class OptVerification():
         return mail
 
     def sendotp_msg(self):
-        local = requests.get(f'https://2factor.in/API/V1/{FACTOR_API_KEY}/SMS/{self.target}/{self.otp}/')
-        if local.status_code == 200:
+        localt = requests.get(f'http://2factor.in/API/V1/6019045c-332e-11ed-9c12-0200cd936042/VOICE/{self.target}/{self.otp}')
+        if localt.status_code == 200:
             return 1
         else:
-            return local
+            return localt
         

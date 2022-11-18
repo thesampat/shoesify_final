@@ -16,6 +16,16 @@ from django.contrib import sessions
 from .verification import OptVerification
 from rest_framework.decorators import api_view, permission_classes
 import json
+from sms import send_sms
+import time
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+
+
 
 
 class ProductsViewSet(viewsets.ViewSet):
@@ -163,6 +173,7 @@ class SignupViewSet(viewsets.ViewSet):
                 'verified': 1
             })
             
+            
         else:
             return Response(serilizer.errors)
 
@@ -251,11 +262,14 @@ def sendOtp(request, target):
 
     else:
         res = otpvar.sendotp_msg()
+        print(res)
         data = {
             'data': target,
             'status': res,
             'token': token
         }
         request.session.set_expiry(300)
+        
         return data
+
 

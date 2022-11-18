@@ -113,6 +113,8 @@ ROOT_URLCONF = 'shoesify.urls'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+SMS_BACKEND = 'sms.backends.locmem.SmsBackend'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -206,5 +208,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sampat4123@gmail.com'
 EMAIL_HOST_PASSWORD = 'rkvwrfkthsbvjwch'
+# EMAIL_HOST_USER='psampat737@gmail.com'
+# EMAIL_HOST_PASSWORD="GoSam12$$"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False

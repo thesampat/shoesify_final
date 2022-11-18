@@ -93,19 +93,26 @@ const resetPassword=(e)=>{
             'email': e.target[2].value,
             'first_name': e.target[0].value,
             'last_name': e.target[1].value,
+
+            // 'username': 'ronak',
+            // 'password': 'roank123',
+            // 'email': 'sampat4123@gmail.com',
+            // 'first_name': 'ronak',
+            // 'last_name': 'sharma',
             
             
         }
 
         async function SignUpdjanog ()
-        
+
         {       
             const send_mail = async(target) => {
                 loginPortal.style.opacity = '80%'
+                console.log('set load to try')
                 setload(true)
-                console.log(target)
+                console.log(load)
                 data = {'target': target}
-                let eamilres = axios.post(`http://${window.location.hostname}:8000/resetOtp/`, data).then(
+                axios.post(`http://${window.location.hostname}:8000/resetOtp/`, data).then(
                     res => {
                         setload(false)
                         loginPortal.style.opacity = '100%'

@@ -18,7 +18,8 @@ export default function OtpView(props){
         async function post(){
             setload(true)
             loginPortal.style.opacity = '90%'
-            let data = {"target":"sampat4123@gmail.com"}
+            console.log(props.props.target.data)
+            let data = {"target":props.props.target.data}
             let res = await axios.post(`http://${window.location.hostname}:8000/resetOtp/`, data).then(
                 res => {
                     setload(false)
@@ -59,10 +60,12 @@ export default function OtpView(props){
         if (res.data.status === 1){
             console.log(props.props.action, '-----------------------------')
             alert('otp verified successsfuly')
+
             if (props.props.action === false){
                 props.props.otpv(false)
                 const loginPortal =  document.getElementById('loginPortal');
                 loginPortal.style.display = 'None'
+                alert('please login ?? account created')
             }
             else{
                 console.log('reset/////////////')
