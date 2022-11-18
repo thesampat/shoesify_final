@@ -43,9 +43,8 @@ async function displayRazorpayPaymentSdk() {
   }
 
 //   Getting the order details back
-   const {Amount, razorpay_order_id,  merchantId=null, currency=null,order_Id=null} = result.data[0];
+   const {Amount, razorpay_order_id} = result.data[0];
 
-   console.log(Amount, razorpay_order_id, 'teset')
 
   const options = {
       key: 'rzp_test_QPGJfseF5g03Qp',
@@ -65,11 +64,11 @@ async function displayRazorpayPaymentSdk() {
           razorpay_signature
         })
 
-        if (res.data.status == 1){
+        if (res.data.status === 1){
             alert('Payment Successfull')
             let data2 = {'Status':2}
             for(let item of result.data[0].Item){
-                const result = await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
+                await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
             }
             naivgate('/order')
 
@@ -77,7 +76,7 @@ async function displayRazorpayPaymentSdk() {
         else{
             let data2 = {'Status':3}
             for(let item of result.data[0].Item){
-                const result = await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
+                await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
             }
             alert('Payment Failed')
             naivgate('/cart')

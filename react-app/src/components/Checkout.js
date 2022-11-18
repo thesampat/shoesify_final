@@ -2,11 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+export default function(){
 
-
-export default function   (){
-
-  const [qty, setqty] = useState([]);
     const [cartdata, setcartdata] = useState();
     const [total, settotal] = useState(0)
     let token = JSON.parse(localStorage.getItem('token'))
@@ -60,7 +57,7 @@ export default function   (){
 
           
           {
-          cartdata != undefined?
+          cartdata !== undefined?
 
           (cartdata.map((el, index)=>{
             return(
@@ -202,9 +199,9 @@ export default function   (){
     <footer className="my-5 pt-5 text-muted text-center text-small">
       <p className="mb-1">&copy; 2017-2019 Company Name</p>
       <ul className="list-inline">
-        <li className="list-inline-item"><a href="#">Privacy</a></li>
-        <li className="list-inline-item"><a href="#">Terms</a></li>
-        <li className="list-inline-item"><a href="#">Support</a></li>
+        <li className="list-inline-item">Privacy</li>
+        <li className="list-inline-item">Terms</li>
+        <li className="list-inline-item">Support</li>
       </ul>
     </footer>
   </div>
