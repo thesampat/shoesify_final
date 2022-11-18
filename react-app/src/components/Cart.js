@@ -149,7 +149,7 @@
     
 
     <div className="back-to-shop">
-    <a href="#">
+    <a href="/">
     <span className="text-muted">Back to shop</span>
     </a>
     </div>

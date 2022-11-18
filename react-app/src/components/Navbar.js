@@ -82,6 +82,9 @@ export default function NavBar() {
               <a className="nav-link" aria-current="page" href="/">Products</a>
             </li>
             <li className="nav-item ps-2">
+              <a className="nav-link" aria-current="page" href="/order">Orders</a>
+            </li>
+            <li className="nav-item ps-2">
               <a className="nav-link" aria-current="page" href="about">About</a>
             </li>
             <li className="nav-item ps-2">

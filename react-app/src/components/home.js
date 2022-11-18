@@ -3,7 +3,7 @@ import "./CSS/home.css";
 import Axios from 'axios'
 import axios from "axios";
 
-var backend = 'http://127.0.0.1:8000'
+var backend = `http://${window.location.hostname}:8000`
 
 export default function Home() {
   const [data, setdata] = useState()
@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(()=>{
       async function fetch(){
-        let res = await Axios.get('http://127.0.0.1:8000/products/')
+        let res = await Axios.get(`http://${window.location.hostname}:8000/products/`)
         setdata(res.data)
         
 

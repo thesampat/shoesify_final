@@ -17,7 +17,6 @@ class RazorPay(APIView):
 
     def get(self, request, type):
         if type ==  '2':
-            print('test')
             queryset = Order_Model.objects.filter(User=request.user).filter(Payment_Status__in=[2, 3])
         elif type =='1':
             queryset = Order_Model.objects.filter(User=request.user).filter(Payment_Status__in=[1])
@@ -33,7 +32,6 @@ class RazorPay(APIView):
             if serilizer.is_valid():
                 serilizer.save(User=request.user)
 
-            
             data = { "amount": (serilizer.validated_data['Amount']*100), "currency": "INR", "receipt": '1'}
             razor_order = client.order.create(data=data)
             serilizer.save(razorpay_order_id=razor_order['id'])
@@ -45,6 +43,10 @@ class RazorPay(APIView):
                 orderob.save()
 
             return Response(razor_order)
+
+        else:
+            serilizer = OrderSerilizer(queryset, many=True)
+            return Response(serilizer.data)
 
 
     @action(detail=True, methods=[])

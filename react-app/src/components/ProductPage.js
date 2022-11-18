@@ -22,7 +22,7 @@ export default function ProductView(){
 
     useEffect(()=>{
         async function fetch(){
-          let res = await Axios.get('http://127.0.0.1:8000/products/'+String(product_id))
+          let res = await Axios.get(`http://${window.location.hostname}:8000/products/`+String(product_id))
           setdata(res.data)
           setavcolors(res.data.varients)
           setVarientColor(res.data.varients[0].id)
@@ -102,7 +102,7 @@ export default function ProductView(){
                                     im.map((el, index)=>{
                                         return(
                                             <button className="varientImageButton my-0 py-0" onClick={()=>setmainimg(index)} key={el.id}>
-                                            <img className="vimg mb-1" src={'http://127.0.0.1:8000'+el.images} alt="" style={{width:'100%'}}/>
+                                            <img className="vimg mb-1" src={`http://${window.location.hostname}:8000`+el.images} alt="" style={{width:'100%'}}/>
                                             </button>
                                         )
                                     })
@@ -114,7 +114,7 @@ export default function ProductView(){
                                 
                                 <div className="col-12 col-lg-9 p-0 m-0 ms-lg-2 px-md-4 px-lg-0">
                                     <div className="textc p-0 m-0"> 
-                                    <img className="spimg" src={'http://127.0.0.1:8000'+im[mainimg].images} alt="" />
+                                    <img className="spimg" src={`http://${window.location.hostname}:8000`+im[mainimg].images} alt="" />
                                     </div>
                         
                                     <div className="controlButtons d-flex flex-wrap flex-md-wrap flex-lg-nowrap gap-3 d-none d-lg-block text-center"><br />
@@ -213,7 +213,7 @@ const VarientColors = (props)=>{
                             return(
                                 <div className="d-flex flex-column text-center" key={el.id}>
                                 <button className='varientImageButton' onClick={()=>{props.setvar(el.id); props.chsizesgroup(index) ; props.setindexsize('Size')}} key={el.id}>
-                                <img src={'http://127.0.0.1:8000'+image[0].images} style={{width:'50px', height:'50px'}} alt=""/>
+                                <img src={`http://${window.location.hostname}:8000`+image[0].images} style={{width:'50px', height:'50px'}} alt=""/>
                                 </button>
                                 <div>{el.color}</div>
                                 </div>
