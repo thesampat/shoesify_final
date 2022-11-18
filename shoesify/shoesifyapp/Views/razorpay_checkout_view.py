@@ -4,16 +4,11 @@ from .razorsetup import razor_key_id, razor_key_secret, client
 from ..models import Order_Model, Cart
 from rest_framework.views import APIView
 from rest_framework.response import Response
-<<<<<<< HEAD
 from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from ..OrderSerilizers import OrderSerilizer
 import json
 
-=======
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
 Order_Object = None
 
 
@@ -27,7 +22,6 @@ class RazorPay(APIView):
         elif type =='1':
             queryset = Order_Model.objects.filter(User=request.user).filter(Payment_Status__in=[1])
 
-<<<<<<< HEAD
         serilizer = OrderSerilizer(queryset, many=True)
         return Response(serilizer.data)
     
@@ -42,6 +36,7 @@ class RazorPay(APIView):
             
             data = { "amount": (serilizer.validated_data['Amount']*100), "currency": "INR", "receipt": '1'}
             razor_order = client.order.create(data=data)
+            serilizer.save(razorpay_order_id=razor_order['id'])
             orderob = Order_Model.objects.filter(User=request.user).filter(Payment_Status=3).get()
             
             for i in request.data['Item']:
@@ -49,18 +44,7 @@ class RazorPay(APIView):
                 orderob.Item.add(item)
                 orderob.save()
 
-=======
-    def get(self, request):
-        # Order_Object = Order_Model.objects.create(User=request.user, Amount=res['total'])
-        # Order_Object.save()    
-        # Order_Object.Order_id = Order_Object.id
-        data = { "amount": (100*1000), "currency": "INR", "receipt": '1'}
-        razor_order = client.order.create(data=data)
-        # Order_Object.razorpay_order_id = razor_order['id']
-        # Order_Object.save()  
-
-        return Response(razor_order)
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
+            return Response(razor_order)
 
 
     @action(detail=True, methods=[])
@@ -76,7 +60,6 @@ class RazorPay(APIView):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def HandlePayment(request):
-<<<<<<< HEAD
 
         print(request.data)
         if 'error[code]' not in request.data.keys():
@@ -95,6 +78,7 @@ def HandlePayment(request):
 
 
             client = razorpay.Client(auth=(razor_key_id, razor_key_secret))
+
             Order_Object = Order_Model.objects.get(razorpay_order_id=data['razorpay_order_id'])
 
             try:
@@ -158,33 +142,5 @@ def HandlePayment(request):
                 
         
 
-=======
-        data = {}
-        for key, value in request.POST.items():
-            if key == 'razorpay_payment_id':
-                data['razorpay_payment_id'] = value
-            elif key == 'razorpay_order_id':
-                data['razorpay_order_id'] = value
-            elif key == 'razorpay_signature':
-                data['razorpay_signature'] = value
-
-
-        client = razorpay.Client(auth=(razor_key_id, razor_key_secret))
-        ord = Order_Model()
-
-        try:
-            check =client.utility.verify_payment_signature(data)
-            if check:
-                # Order_Object.Status = 2
-                # Order_Object.Payment_Status = 1
-                # Order_Object.save()
-
-                print('verififed payment')
-                return Response('paymentSucessful')
-
-        except Exception as e:
-                print('verififed fail', e)
-                return Response('paymentfail')
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
 
 

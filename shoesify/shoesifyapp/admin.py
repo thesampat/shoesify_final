@@ -33,12 +33,8 @@ admin.site.register(Products, productsAdmin)
 
 
 class cartAdmin(admin.ModelAdmin):
-<<<<<<< HEAD
     list_display = ['id', 'user', 'title','color', 'size', 'price', 'qty', 'Status']
     readonly_fields = ['max_qty']
-=======
-    list_display = ['user', 'title','color', 'size', 'price', 'qty']
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
     
 
 admin.site.register(Cart, cartAdmin)

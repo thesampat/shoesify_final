@@ -49,7 +49,7 @@ async function displayRazorpayPaymentSdk() {
 
   const options = {
       key: 'rzp_test_QPGJfseF5g03Qp',
-      amount: Amount,
+      amount: (Amount*100),
       currency: 'INR',
       name: "Razorpay Testing",
       description: "Test Transaction",
@@ -67,15 +67,18 @@ async function displayRazorpayPaymentSdk() {
 
         if (res.data.status == 1){
             alert('Payment Successfull')
-            let data = {'Status':2}
-            console.log(result.data)
+            let data2 = {'Status':2}
             for(let item of result.data[0].Item){
-                const result = await axios.put("http://"+window.location.hostname+":8000/Cart/"+item.id+"/", data ,config);
+                const result = await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
             }
             naivgate('/order')
 
         }
         else{
+            let data2 = {'Status':3}
+            for(let item of result.data[0].Item){
+                const result = await axios.post("http://"+window.location.hostname+":8000/Cart/"+item.id+"/Status/", data2 ,config);
+            }
             alert('Payment Failed')
             naivgate('/cart')
         }

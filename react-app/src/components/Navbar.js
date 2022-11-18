@@ -45,11 +45,7 @@ export default function NavBar() {
   const logout = async()=>{
     localStorage.removeItem('user')
     let token = localStorage.getItem('token')
-<<<<<<< HEAD
     await axios.post('http://'+window.location.hostname+':8000/api/token/refresh/', {'token':token})
-=======
-    axios.post('http://127.0.0.1:8000/api/token/refresh/', {'token':token})
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
     localStorage.removeItem('token')
     setuser('None')
   }

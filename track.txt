@@ -1,7 +1,5 @@
 Further task
 
-1. front end layout redesign
-2. need to set all private keys, secreate keys to .env file take it from thiery
 3. handling the situation where user signup but forgot or cancel the otp verification
 
 
@@ -9,10 +7,4 @@ Further task
 
 OnTotalHandling....
 
-4. Show if item is already in cart or not
-
-5. limiting the max quantiy of cart as per availibility varients quantiy - Done
 6. empty order id  - Undone, no problem exists
-7. Home redesign
-8, email load handling
-9,

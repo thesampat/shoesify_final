@@ -95,6 +95,17 @@ class CartViewSet(viewsets.ViewSet):
             return Response(total)
         return Response(serializer.errors)
 
+    @action(detail=True, methods=['post'])
+    def Status(self, request, pk):
+        try:
+            obj = Cart.objects.filter(user=request.user).get(pk=pk)
+        except:
+            Response('object not found')
+
+        obj.Status = request.data['Status']
+        obj.save()
+        return Response('Chnaged')
+
 
     @action(detail=False, methods=['get'])
     def qty(self, request):

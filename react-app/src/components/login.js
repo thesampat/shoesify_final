@@ -9,15 +9,9 @@ import './CSS/loading.css'
 const loginPortal =  document.getElementById('loginPortal');
 const root = document.getElementById('root');
 
-<<<<<<< HEAD
 
 const LoginUser= (user, pass, setu)=>{    
     axios.post('http://'+window.location.hostname+':8000/api/token/', 
-=======
-const LoginUser= (user, pass, setu)=>{
-    
-    axios.post('http://127.0.0.1:8000/api/token/', 
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
     {'username':user,
      'password':pass}
     ).then(

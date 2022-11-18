@@ -58,17 +58,12 @@ export default function ProductView(){
             }
 
 
-<<<<<<< HEAD
             axios.post('http://'+window.location.hostname+':8000/Cart/', payload, {headers: {'Authorization' : `Bearer ${token}`}}).then(
                 res =>{
                     console.log(e.target.id)
                     e.target.innerHTML =  '&#10003;'+'Added To Cart'
                     e.target.style.backgroundColor ='green'
                 }
-=======
-            axios.post('http://127.0.0.1:8000/Cart/', payload, {headers: {'Authorization' : `Bearer ${token}`}}).then(
-                res =>console.log(res)
->>>>>>> parent of 034df02... 1. Fixed axios network error in other devices
             )
 
         }

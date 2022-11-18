@@ -9,7 +9,7 @@ class Order_Model(models.Model):
         (1, 'Not Packed'),
         (2, 'Ready For Shipment'),
         (3, 'Shipped'),
-        (1, 'Delivered'),
+        (4, 'Delivered'),
     )
 
     payment_status_choices = (
